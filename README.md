@@ -4,5 +4,5 @@
 
 ## Results
 
-## Contact - se@voltdb.com
+## Contact - se AT voltdb.com
 
