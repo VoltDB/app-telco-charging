@@ -1,4 +1,4 @@
-# Event Backfilling Project - VoltDB vs Redis
+# Telco Charging Application 
 
 ## Running Instructions
 
