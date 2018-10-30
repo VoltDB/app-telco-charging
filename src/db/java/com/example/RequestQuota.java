@@ -26,7 +26,6 @@ package com.example;
 import org.voltdb.SQLStmt;
 import org.voltdb.VoltProcedure;
 import org.voltdb.VoltTable;
-import org.voltdb.types.TimestampType;
 
 public class RequestQuota extends VoltProcedure {
 
