@@ -54,3 +54,41 @@ task dbJar(type: Jar) {
 task jarAll()
 jarAll.dependsOn clientJar
 jarAll.dependsOn dbJar
+
+task runBenchmark(type: JavaExec) {
+	classpath = sourceSets.main.runtimeClasspath
+	main = 'com.example.benchmark.VoltDBBenchmark'
+	args = ['localhost', 0, 10000, 100, 60000, 0, 4, 'test-run'] 
+}
+
+task loadInitData(type: JavaExec) {
+	classpath = sourceSets.main.runtimeClasspath
+	main = 'com.example.benchmark.InitDataLoader'
+	args = ['localhost', 0, 10000, 10, 200, 10000] 
+}
+
+task startServer(type:Exec) {
+	doFirst {
+		commandLine 'voltdb', 'init', '-f'
+		sleep (2*1000)
+		commandLine 'voltdb', 'start', '-B'
+	}
+	doLast {
+		sleep (15*1000)
+	}
+}
+
+task loadDDL(type:Exec) {
+	commandLine 'sqlcmd'
+	doFirst {
+      standardInput = new FileInputStream(file("ddl.sql"))
+    }
+}
+
+task stopServer(type:Exec) {
+	commandLine 'voltadmin', 'shutdown'
+}
+
+runBenchmark.dependsOn loadInitData
+loadInitData.dependsOn loadDDL
+loadDDL.dependsOn startServer

@@ -3,6 +3,7 @@ file -inlinebatch END_DROP_BATCH
 drop procedure GetUser IF EXISTS;
 drop procedure UpsertUser IF EXISTS;
 drop procedure RequestQuota IF EXISTS;
+drop procedure InitUsage IF EXISTS;
 drop table PRODUCT  if exists  cascade;
 drop table USER if exists  cascade;
 drop table USAGE if exists  cascade;
@@ -45,7 +46,7 @@ echo create procedures
 
 CREATE_BATCH
 
-load classes procs.jar;
+load classes build/libs/procs-1.0.jar;
 
 file -inlinebatch PROCS_BATCH
 
