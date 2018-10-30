@@ -1,8 +1,3 @@
-# Telco Charging Application 
-
-## Running Instructions
-
-## Results
-
-## Contact - se AT voltdb.com
+# app-telco-charging
+Telecom charging application and benchmark
 
