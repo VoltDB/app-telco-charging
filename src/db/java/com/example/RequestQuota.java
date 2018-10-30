@@ -94,8 +94,6 @@ public class RequestQuota extends VoltProcedure {
         long wantToSpend = unitCost * unitsWanted;
         String status = "";
         
-//        System.out.println("wantToSpend:currentBalance " + wantToSpend + ":" + currentBalance);
-        
         if (wantToSpend > currentBalance ) {
             status = "Not enough money. wantToSpend : currentBalance " + wantToSpend + " : " + currentBalance;
             this.setAppStatusCode(ReferenceData.STATUS_NO_MONEY);
