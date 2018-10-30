@@ -4,7 +4,7 @@ plugins {
     id 'eclipse'
 }
 
-defaultTasks 'jarAll'
+defaultTasks 'runBenchmark'
 
 repositories {
  	mavenCentral()
@@ -92,3 +92,4 @@ task stopServer(type:Exec) {
 runBenchmark.dependsOn loadInitData
 loadInitData.dependsOn loadDDL
 loadDDL.dependsOn startServer
+loadDDL.dependsOn jarAll
