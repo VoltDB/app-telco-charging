@@ -11,6 +11,6 @@ Quickstart
 ------------
 Make sure "bin" inside the VoltDB kit is in your PATH. Then open a shell and go to this directory, then execute the following
 
-	gradle
+	./gradlew
 
 Launch http://localhost:8080 to see the Volt Management Console
